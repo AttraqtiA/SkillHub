@@ -32,7 +32,7 @@
                         <tr class="border-b border-slate-100 hover:bg-slate-50">
                             <td class="px-4 py-2">
                                 <div class="font-medium text-slate-800">
-                                    <a href="{{ route('participants.show', $enrollment->participant) }}"
+                                    <a href="{{ route('participant_classes.show', $enrollment) }}"
                                        class="hover:text-skillhub-600">
                                         {{ $enrollment->participant->name }}
                                     </a>
@@ -43,7 +43,7 @@
                             </td>
                             <td class="px-4 py-2 text-slate-700">
                                 @if($enrollment->class)
-                                    <a href="{{ route('course_classes.show', $enrollment->class) }}"
+                                    <a href="{{ route('participant_classes.show', $enrollment) }}"
                                        class="hover:text-skillhub-600">
                                         {{ $enrollment->class->title }}
                                     </a>

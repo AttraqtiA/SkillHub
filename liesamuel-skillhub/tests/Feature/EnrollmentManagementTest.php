@@ -52,6 +52,28 @@ it('creates an enrollment', function () {
     ]);
 });
 
+it('shows a single enrollment detail', function () {
+    $participant = Participant::factory()->create();
+    $class       = CourseClass::factory()->create();
+
+    $enrollment = ParticipantClass::create([
+        'participant_id' => $participant->participant_id,
+        'courseclass_id' => $class->courseclass_id,
+        'enrolled_at'    => now(),
+        'status'         => 'completed',
+        'grade'          => 'A',
+        'progress'       => 100,
+    ]);
+
+    $response = get(route('participant_classes.show', $enrollment->participant_class_id));
+
+    $response->assertStatus(200);
+    $response->assertSeeText($participant->name);
+    $response->assertSeeText($class->title);
+    $response->assertSeeText('Completed');
+    $response->assertSeeText('100');
+});
+
 it('updates an enrollment', function () {
     $participant = Participant::factory()->create();
     $class       = CourseClass::factory()->create();
