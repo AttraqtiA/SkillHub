@@ -26,6 +26,7 @@
             }
         }
     </script>
+
 </head>
 <body class="bg-slate-100 text-slate-900 min-h-screen flex flex-col">
 
@@ -77,7 +78,7 @@
     <footer class="border-t border-slate-200 bg-white">
         <div class="max-w-6xl mx-auto px-4 py-3 text-xs text-slate-500 flex justify-between">
             <span>SkillHub &copy; {{ date('Y') }}</span>
-            <span>Built with Laravel & TailwindCSS</span>
+            <span>Lie, Samuel Miracle Kristanto - 0706012210011</span>
         </div>
     </footer>
 

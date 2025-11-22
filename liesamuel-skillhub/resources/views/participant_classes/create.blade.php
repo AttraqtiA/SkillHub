@@ -16,8 +16,8 @@
                 <div class="grid md:grid-cols-2 gap-4">
                     <div>
                         <label class="block text-sm font-medium text-slate-700 mb-1">Participant</label>
-                        <select name="participant_id"
-                                class="w-full rounded-md border-slate-300 focus:border-skillhub-500 focus:ring-skillhub-500 text-sm">
+                        <select name="participant_id" required
+                                class="w-full rounded-md border border-slate-300 bg-slate-50 shadow-sm focus:bg-white focus:border-skillhub-500 focus:ring-skillhub-500 text-sm">
                             <option value="">-- Select Participant --</option>
                             @foreach($participants as $participant)
                                 <option value="{{ $participant->participant_id }}"
@@ -33,8 +33,8 @@
 
                     <div>
                         <label class="block text-sm font-medium text-slate-700 mb-1">Class</label>
-                        <select name="courseclass_id"
-                                class="w-full rounded-md border-slate-300 focus:border-skillhub-500 focus:ring-skillhub-500 text-sm">
+                        <select name="courseclass_id" required
+                                class="w-full rounded-md border border-slate-300 bg-slate-50 shadow-sm focus:bg-white focus:border-skillhub-500 focus:ring-skillhub-500 text-sm">
                             <option value="">-- Select Class --</option>
                             @foreach($classes as $class)
                                 <option value="{{ $class->courseclass_id }}"
@@ -53,7 +53,8 @@
                     <div>
                         <label class="block text-sm font-medium text-slate-700 mb-1">Enrolled At</label>
                         <input type="date" name="enrolled_at" value="{{ old('enrolled_at') }}"
-                               class="w-full rounded-md border-slate-300 focus:border-skillhub-500 focus:ring-skillhub-500 text-sm">
+                               required
+                               class="w-full rounded-md border border-slate-300 bg-slate-50 shadow-sm focus:bg-white focus:border-skillhub-500 focus:ring-skillhub-500 text-sm">
                         @error('enrolled_at')
                             <p class="text-xs text-red-600 mt-1">{{ $message }}</p>
                         @enderror
@@ -61,8 +62,8 @@
 
                     <div>
                         <label class="block text-sm font-medium text-slate-700 mb-1">Status</label>
-                        <select name="status"
-                                class="w-full rounded-md border-slate-300 focus:border-skillhub-500 focus:ring-skillhub-500 text-sm">
+                        <select name="status" required
+                                class="w-full rounded-md border border-slate-300 bg-slate-50 shadow-sm focus:bg-white focus:border-skillhub-500 focus:ring-skillhub-500 text-sm">
                             <option value="">-- Select --</option>
                             <option value="active" @selected(old('status') === 'active')>Active</option>
                             <option value="completed" @selected(old('status') === 'completed')>Completed</option>
@@ -76,8 +77,8 @@
                     <div>
                         <label class="block text-sm font-medium text-slate-700 mb-1">Progress (%)</label>
                         <input type="number" name="progress" value="{{ old('progress', 0) }}"
-                               class="w-full rounded-md border-slate-300 focus:border-skillhub-500 focus:ring-skillhub-500 text-sm"
-                               min="0" max="100">
+                               required min="0" max="100"
+                               class="w-full rounded-md border border-slate-300 bg-slate-50 shadow-sm focus:bg-white focus:border-skillhub-500 focus:ring-skillhub-500 text-sm">
                         @error('progress')
                             <p class="text-xs text-red-600 mt-1">{{ $message }}</p>
                         @enderror
@@ -87,7 +88,7 @@
                 <div>
                     <label class="block text-sm font-medium text-slate-700 mb-1">Grade</label>
                     <input type="text" name="grade" value="{{ old('grade') }}"
-                           class="w-full rounded-md border-slate-300 focus:border-skillhub-500 focus:ring-skillhub-500 text-sm"
+                           class="w-full rounded-md border border-slate-300 bg-slate-50 shadow-sm focus:bg-white focus:border-skillhub-500 focus:ring-skillhub-500 text-sm"
                            placeholder="e.g. A, B, 90">
                     @error('grade')
                         <p class="text-xs text-red-600 mt-1">{{ $message }}</p>

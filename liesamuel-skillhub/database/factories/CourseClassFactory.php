@@ -25,7 +25,6 @@ class CourseClassFactory extends Factory
             'instructor_name' => $this->faker->name(),
             'start_date'      => $start->format('Y-m-d'),
             'end_date'        => $end->format('Y-m-d'),
-            'status'          => $this->faker->randomElement(['planned', 'ongoing', 'finished']),
             'duration'        => $this->faker->numberBetween(4, 40),
             'level'           => $this->faker->randomElement(['basic', 'intermediate', 'advanced']),
             'category'        => $this->faker->randomElement(['design', 'programming', 'video', 'public speaking']),

@@ -16,7 +16,8 @@
                 <div>
                     <label class="block text-sm font-medium text-slate-700 mb-1">Name</label>
                     <input type="text" name="name" value="{{ old('name') }}"
-                           class="w-full rounded-md border-slate-300 focus:border-skillhub-500 focus:ring-skillhub-500 text-sm">
+                           required
+                           class="w-full rounded-md border border-slate-300 bg-slate-50 shadow-sm focus:bg-white focus:border-skillhub-500 focus:ring-skillhub-500 text-sm">
                     @error('name')
                         <p class="text-xs text-red-600 mt-1">{{ $message }}</p>
                     @enderror
@@ -26,7 +27,8 @@
                     <div>
                         <label class="block text-sm font-medium text-slate-700 mb-1">Email</label>
                         <input type="email" name="email" value="{{ old('email') }}"
-                               class="w-full rounded-md border-slate-300 focus:border-skillhub-500 focus:ring-skillhub-500 text-sm">
+                               required
+                               class="w-full rounded-md border border-slate-300 bg-slate-50 shadow-sm focus:bg-white focus:border-skillhub-500 focus:ring-skillhub-500 text-sm">
                         @error('email')
                             <p class="text-xs text-red-600 mt-1">{{ $message }}</p>
                         @enderror
@@ -35,7 +37,7 @@
                     <div>
                         <label class="block text-sm font-medium text-slate-700 mb-1">Phone Number</label>
                         <input type="text" name="phone_number" value="{{ old('phone_number') }}"
-                               class="w-full rounded-md border-slate-300 focus:border-skillhub-500 focus:ring-skillhub-500 text-sm">
+                               class="w-full rounded-md border border-slate-300 bg-slate-50 shadow-sm focus:bg-white focus:border-skillhub-500 focus:ring-skillhub-500 text-sm">
                         @error('phone_number')
                             <p class="text-xs text-red-600 mt-1">{{ $message }}</p>
                         @enderror
@@ -45,7 +47,7 @@
                 <div>
                     <label class="block text-sm font-medium text-slate-700 mb-1">Address</label>
                     <textarea name="address" rows="2"
-                              class="w-full rounded-md border-slate-300 focus:border-skillhub-500 focus:ring-skillhub-500 text-sm">{{ old('address') }}</textarea>
+                              class="w-full rounded-md border border-slate-300 bg-slate-50 shadow-sm focus:bg-white focus:border-skillhub-500 focus:ring-skillhub-500 text-sm">{{ old('address') }}</textarea>
                     @error('address')
                         <p class="text-xs text-red-600 mt-1">{{ $message }}</p>
                     @enderror
@@ -55,7 +57,7 @@
                     <div>
                         <label class="block text-sm font-medium text-slate-700 mb-1">Birth Date</label>
                         <input type="date" name="birth_date" value="{{ old('birth_date') }}"
-                               class="w-full rounded-md border-slate-300 focus:border-skillhub-500 focus:ring-skillhub-500 text-sm">
+                               class="w-full rounded-md border border-slate-300 bg-slate-50 shadow-sm focus:bg-white focus:border-skillhub-500 focus:ring-skillhub-500 text-sm">
                         @error('birth_date')
                             <p class="text-xs text-red-600 mt-1">{{ $message }}</p>
                         @enderror
@@ -64,7 +66,7 @@
                     <div>
                         <label class="block text-sm font-medium text-slate-700 mb-1">Gender</label>
                         <select name="gender"
-                                class="w-full rounded-md border-slate-300 focus:border-skillhub-500 focus:ring-skillhub-500 text-sm">
+                                class="w-full rounded-md border border-slate-300 bg-slate-50 shadow-sm focus:bg-white focus:border-skillhub-500 focus:ring-skillhub-500 text-sm">
                             <option value="">-- Select --</option>
                             <option value="Male"   @selected(old('gender') === 'Male')>Male</option>
                             <option value="Female" @selected(old('gender') === 'Female')>Female</option>

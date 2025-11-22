@@ -17,8 +17,8 @@
                 <div class="grid md:grid-cols-2 gap-4">
                     <div>
                         <label class="block text-sm font-medium text-slate-700 mb-1">Participant</label>
-                        <select name="participant_id"
-                                class="w-full rounded-md border-slate-300 focus:border-skillhub-500 focus:ring-skillhub-500 text-sm">
+                        <select name="participant_id" required
+                                class="w-full rounded-md border border-slate-300 bg-slate-50 shadow-sm focus:bg-white focus:border-skillhub-500 focus:ring-skillhub-500 text-sm">
                             <option value="">-- Select Participant --</option>
                             @foreach($participants as $participant)
                                 <option value="{{ $participant->participant_id }}"
@@ -34,8 +34,8 @@
 
                     <div>
                         <label class="block text-sm font-medium text-slate-700 mb-1">Class</label>
-                        <select name="courseclass_id"
-                                class="w-full rounded-md border-slate-300 focus:border-skillhub-500 focus:ring-skillhub-500 text-sm">
+                        <select name="courseclass_id" required
+                                class="w-full rounded-md border border-slate-300 bg-slate-50 shadow-sm focus:bg-white focus:border-skillhub-500 focus:ring-skillhub-500 text-sm">
                             <option value="">-- Select Class --</option>
                             @foreach($classes as $class)
                                 <option value="{{ $class->courseclass_id }}"
@@ -55,7 +55,8 @@
                         <label class="block text-sm font-medium text-slate-700 mb-1">Enrolled At</label>
                         <input type="date" name="enrolled_at"
                                value="{{ old('enrolled_at', $participantClass->enrolled_at ? \Carbon\Carbon::parse($participantClass->enrolled_at)->format('Y-m-d') : null) }}"
-                               class="w-full rounded-md border-slate-300 focus:border-skillhub-500 focus:ring-skillhub-500 text-sm">
+                               required
+                               class="w-full rounded-md border border-slate-300 bg-slate-50 shadow-sm focus:bg-white focus:border-skillhub-500 focus:ring-skillhub-500 text-sm">
                         @error('enrolled_at')
                             <p class="text-xs text-red-600 mt-1">{{ $message }}</p>
                         @enderror
@@ -63,10 +64,10 @@
 
                     <div>
                         <label class="block text-sm font-medium text-slate-700 mb-1">Status</label>
-                        <select name="status"
-                                class="w-full rounded-md border-slate-300 focus:border-skillhub-500 focus:ring-skillhub-500 text-sm">
+                        @php $status = old('status', $participantClass->status); @endphp
+                        <select name="status" required
+                                class="w-full rounded-md border border-slate-300 bg-slate-50 shadow-sm focus:bg-white focus:border-skillhub-500 focus:ring-skillhub-500 text-sm">
                             <option value="">-- Select --</option>
-                            @php $status = old('status', $participantClass->status); @endphp
                             <option value="active" @selected($status === 'active')>Active</option>
                             <option value="completed" @selected($status === 'completed')>Completed</option>
                             <option value="cancelled" @selected($status === 'cancelled')>Cancelled</option>
@@ -78,9 +79,10 @@
 
                     <div>
                         <label class="block text-sm font-medium text-slate-700 mb-1">Progress (%)</label>
-                        <input type="number" name="progress" value="{{ old('progress', $participantClass->progress) }}"
-                               class="w-full rounded-md border-slate-300 focus:border-skillhub-500 focus:ring-skillhub-500 text-sm"
-                               min="0" max="100">
+                        <input type="number" name="progress"
+                               value="{{ old('progress', $participantClass->progress) }}"
+                               required min="0" max="100"
+                               class="w-full rounded-md border border-slate-300 bg-slate-50 shadow-sm focus:bg-white focus:border-skillhub-500 focus:ring-skillhub-500 text-sm">
                         @error('progress')
                             <p class="text-xs text-red-600 mt-1">{{ $message }}</p>
                         @enderror
@@ -90,7 +92,7 @@
                 <div>
                     <label class="block text-sm font-medium text-slate-700 mb-1">Grade</label>
                     <input type="text" name="grade" value="{{ old('grade', $participantClass->grade) }}"
-                           class="w-full rounded-md border-slate-300 focus:border-skillhub-500 focus:ring-skillhub-500 text-sm">
+                           class="w-full rounded-md border border-slate-300 bg-slate-50 shadow-sm focus:bg-white focus:border-skillhub-500 focus:ring-skillhub-500 text-sm">
                     @error('grade')
                         <p class="text-xs text-red-600 mt-1">{{ $message }}</p>
                     @enderror
