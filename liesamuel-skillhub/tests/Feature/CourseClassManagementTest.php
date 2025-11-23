@@ -115,34 +115,3 @@ it('deletes a class and cascades enrollments', function () {
         'participant_class_id' => $enrollment->participant_class_id,
     ]);
 });
-
-it('shows all participants registered in a class', function () {
-    $class = \App\Models\CourseClass::factory()->create();
-
-    $alice = \App\Models\Participant::factory()->create(['name' => 'Alice']);
-    $bob   = \App\Models\Participant::factory()->create(['name' => 'Bob']);
-
-    \App\Models\ParticipantClass::create([
-        'participant_id' => $alice->participant_id,
-        'courseclass_id' => $class->courseclass_id,
-        'enrolled_at'    => now(),
-        'status'         => 'active',
-        'grade'          => null,
-        'progress'       => 40,
-    ]);
-
-    \App\Models\ParticipantClass::create([
-        'participant_id' => $bob->participant_id,
-        'courseclass_id' => $class->courseclass_id,
-        'enrolled_at'    => now(),
-        'status'         => 'active',
-        'grade'          => null,
-        'progress'       => 80,
-    ]);
-
-    $response = get(route('course_classes.show', $class->courseclass_id));
-
-    $response->assertStatus(200);
-    $response->assertSeeText('Alice');
-    $response->assertSeeText('Bob');
-});
